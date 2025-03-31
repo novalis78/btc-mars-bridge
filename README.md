@@ -1,12 +1,12 @@
-# Bitcoin-MarsCoin Atomic Swap Platform
+# Bitcoin-Marscoin Atomic Swap Platform
 
-A trustless, decentralized platform that enables users to swap Bitcoin for MarsCoin using atomic swaps with Hashed Timelock Contracts (HTLCs).
+A trustless, decentralized platform that enables users to swap Bitcoin for Marscoin using atomic swaps with Hashed Timelock Contracts (HTLCs).
 
 ## Project Description
 
-This project provides a secure mechanism for atomic swaps between Bitcoin and MarsCoin blockchains. The platform ensures security through cryptographic mechanisms that guarantee either both transactions complete successfully or both are refunded, without requiring trust in a centralized entity.
+This project provides a secure mechanism for atomic swaps between Bitcoin and Marscoin blockchains. The platform ensures security through cryptographic mechanisms that guarantee either both transactions complete successfully or both are refunded, without requiring trust in a centralized entity.
 
-The primary use case is for service providers who own MarsCoin to facilitate exchanges with customers who want to trade their Bitcoin for MarsCoin, though it supports swaps in both directions.
+The primary use case is for service providers who own Marscoin to facilitate exchanges with customers who want to trade their Bitcoin for Marscoin, though it supports swaps in both directions.
 
 ## How It Works
 
@@ -15,13 +15,13 @@ The atomic swap uses Hashed Timelock Contracts (HTLCs) on both blockchains:
 1. A secret preimage is generated along with its SHA256 hash
 2. Two HTLCs are created:
    - The Bitcoin HTLC: Customer locks BTC, Provider can claim with the preimage
-   - The MarsCoin HTLC: Provider locks MarsCoin, Customer can claim with the preimage
-3. The provider reveals the preimage by claiming the Bitcoin, which allows the customer to claim the MarsCoin
+   - The Marscoin HTLC: Provider locks Marscoin, Customer can claim with the preimage
+3. The provider reveals the preimage by claiming the Bitcoin, which allows the customer to claim the Marscoin
 4. If the swap doesn't complete, timelocks ensure both parties can reclaim their funds after a timeout period
 
 ## Features
 
-- Trustless atomic swaps between Bitcoin and MarsCoin
+- Trustless atomic swaps between Bitcoin and Marscoin
 - Command-line interface for managing swaps
 - Secure implementation of Hashed Timelock Contracts (HTLCs)
 - Support for mainnet and testnet
@@ -97,16 +97,16 @@ npm run cli
 btc-mars-swap
 ```
 
-### Swap Workflow for a Service Provider (Owner of MarsCoin)
+### Swap Workflow for a Service Provider (Owner of Marscoin)
 
 1. **Initiate a new swap**
-   - Enter your Bitcoin and MarsCoin addresses
-   - Enter customer's Bitcoin and MarsCoin addresses
-   - Specify Bitcoin amount (in satoshis) and MarsCoin amount
-   - The system will generate Bitcoin and MarsCoin HTLC addresses
+   - Enter your Bitcoin and Marscoin addresses
+   - Enter customer's Bitcoin and Marscoin addresses
+   - Specify Bitcoin amount (in satoshis) and Marscoin amount
+   - The system will generate Bitcoin and Marscoin HTLC addresses
 
-2. **Fund the MarsCoin HTLC**
-   - Send MarsCoin to the generated MarsCoin HTLC address
+2. **Fund the Marscoin HTLC**
+   - Send Marscoin to the generated Marscoin HTLC address
    - Wait for the customer to send Bitcoin to the Bitcoin HTLC address
 
 3. **Verify funding**
@@ -115,11 +115,11 @@ btc-mars-swap
 
 4. **Complete the swap**
    - Use the "Complete swap" option to claim the Bitcoin, revealing the preimage
-   - The customer can then use the preimage to claim the MarsCoin
+   - The customer can then use the preimage to claim the Marscoin
 
 5. **Refund (if needed)**
    - If the swap doesn't complete, you can use the refund option once the timelock expires
-   - This will return your MarsCoin to your original address
+   - This will return your Marscoin to your original address
 
 ### Programmatic API
 
@@ -142,7 +142,7 @@ const swap = await swapCoordinator.initiateSwap({
 
 console.log(`Swap initiated with ID: ${swap.id}`);
 console.log(`Bitcoin HTLC Address: ${swap.btcHtlc.address}`);
-console.log(`MarsCoin HTLC Address: ${swap.marscoinHtlc.address}`);
+console.log(`Marscoin HTLC Address: ${swap.marscoinHtlc.address}`);
 
 // Verify funding status
 const fundingStatus = await swapCoordinator.verifySwapFunding(
@@ -177,7 +177,7 @@ if (claimResult.success) {
 
 - **Private Keys**: Never share your private keys or include them in code repositories.
 - **Confirmations**: Ensure you wait for sufficient blockchain confirmations before considering a transaction final.
-- **Timelocks**: The Bitcoin timelock is set to be longer than the MarsCoin timelock to prevent situations where the refund periods overlap in a way that could cause loss of funds.
+- **Timelocks**: The Bitcoin timelock is set to be longer than the Marscoin timelock to prevent situations where the refund periods overlap in a way that could cause loss of funds.
 - **Public Networks**: Be cautious when using this on public networks; always start with testnet and small amounts.
 
 ## License
