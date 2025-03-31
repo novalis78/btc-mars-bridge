@@ -1,0 +1,28 @@
+{
+  "name": "btc-mars-bridge",
+  "version": "0.1.0",
+  "description": "A trustless, decentralized platform for atomic swaps between Bitcoin and MarsCoin",
+  "main": "src/index.js",
+  "bin": {
+    "btc-mars-swap": "./bin/btc-mars-swap"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "cli": "node src/cli/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/index.js"
+  },
+  "keywords": [
+    "bitcoin",
+    "marscoin",
+    "atomic-swap",
+    "htlc",
+    "cryptocurrency"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bitcoinjs-lib": "^6.1.7",
+    "crypto-js": "^4.2.0"
+  }
+}

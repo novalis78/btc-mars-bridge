@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+/**
+ * Bitcoin-MarsCoin Atomic Swap CLI 
+ * Command line interface for the atomic swap platform
+ */
+
+const cli = require('../src/cli');
+
+// Start the CLI application
+cli.startCli();
